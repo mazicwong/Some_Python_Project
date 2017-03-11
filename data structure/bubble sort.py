@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-# this is a simple PYTHON bubble sort
+# this is a simple Python bubble sort
 
 array = [1, 2, 3, 5, 4, 6, 9, 8, 7]
 for i in range(len(array) - 1, 0, -1):
