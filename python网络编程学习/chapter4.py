@@ -1,0 +1,7 @@
+#!user/bin/env python3
+# -*- coding: gbk -*-
+'''
+Created on 2017Äê1ÔÂ20ÈÕ
+
+@author: mazicwong
+'''
