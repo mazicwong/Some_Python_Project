@@ -19,7 +19,7 @@ def getTitle(url):
     except HTTPError as e:
         return None
     try:
-        bs0bj = BeautifulSoup(html.read(),"html.parser")
+        bs0bj = BeautifulSoup(html.read(),"edtvghtml.parser")
         title = bs0bj.body.h1
     except AttributeError as e:
         return None
