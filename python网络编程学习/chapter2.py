@@ -10,8 +10,8 @@ from bs4 import BeautifulSoup
 import re
 
 html = urlopen("http://www.pythonscraping.com/pages/page3.html")
-bsObj = BeautifulSoup(html, "html.parser")
-images = bsObj.findAll("img", {"src": re.compile("\.\.\/img\/gifts\/img.*\.jpg")})
+soup = BeautifulSoup(html, "html.parser")
+images = soup.findAll("img", {"src": re.compile("\.\.\/img\/gifts\/img.*\.jpg")})
 #一开始findall写成小写的,一直过不去....显示 TypeError: 'NoneType' object is not callable
 for image in images:
     print(image["src"])
