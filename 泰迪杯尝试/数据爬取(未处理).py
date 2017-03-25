@@ -26,7 +26,7 @@ def getHtml(url, cnt):
         saveFile(html, cnt)
     except:
         print('sorry! 第%s个论坛爬取失败' % cnt)
-        saveFile_fail(html,cnt)
+        #saveFile_fail(html,cnt)
 
 
 def getUrl():
