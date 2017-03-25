@@ -6,11 +6,19 @@
 
 import urllib.request
 
-
+#按顺序放入txt
 def saveFile(data, cnt):
     path = r'E:\泰迪杯\C题样例数据\All_html\out%s.txt' % cnt
     f = open(path, 'wb')
     f.write(data)
+    f.close()
+
+
+# 保存爬取不了的网页下来分析
+def saveFail(url, cnt):
+    path = r'E:\泰迪杯\C题样例数据\All_html\fail.txt'
+    f = open(path, 'ab+')
+    f.write(cnt + '  ' + url)
     f.close()
 
 
@@ -26,7 +34,7 @@ def getHtml(url, cnt):
         saveFile(html, cnt)
     except:
         print('sorry! 第%s个论坛爬取失败' % cnt)
-        #saveFile_fail(html,cnt)
+        saveFail(url, cnt)
 
 
 def getUrl():

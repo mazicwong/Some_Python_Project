@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2017/3/25 15:53
 # @Author  : mazicwong
-# @File    : 正则去标签.py
+# @File    : 数据爬取(去标签).py
 
 # 用正则表达式简单过滤html的标签
 import re
@@ -57,6 +57,8 @@ def replaceCharEntity(htmlstr):
 def repalce(s, re_exp, repl_string):
     return re_exp.sub(repl_string, s)
 
+
+'''
 def saveFile(news,cnt):
     path = r'E:\泰迪杯\C题样例数据\All_html 去标签\out%s.txt' % cnt
     file = open(path, 'w+')
@@ -74,3 +76,31 @@ if __name__ == '__main__':
             file.close()
         except:
             print("第%s文件不存在"%cnt)
+'''
+
+
+def saveFile(news, cnt):
+    path = r'E:\泰迪杯\C题样例数据\All_html 相似url\66out%d.txt' % cnt
+    file = open(path, 'w+')
+    file.write(news)
+    file.close()
+
+
+#UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 641: illegal multibyte sequence
+#上面在liaoxuefeng提到了，可以直接忽略他
+
+if __name__ == '__main__':
+    for cnt in [1,-1]:
+        try:
+            path1 = r'E:\泰迪杯\C题样例数据\All_html 相似url\out%s.txt' % cnt
+            #读取一直错误。。改了半个小时终于改成功了
+            #把下面mode = 'r' 改成 'rb', 因为r的时候读进来是gbk..但是也不知道为什么转换不了。。直接读二进制文件吧
+            #明天再把编码问题好好看一看
+            #第二个改动是decode('utf-8')
+            file = open(path1, 'rb')
+            text = file.read().decode('utf-8')
+            news = filter_tags(text)
+            saveFile(news, cnt)
+            file.close()
+        except:
+            print("第%s文件不存在" % cnt)
