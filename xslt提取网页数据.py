@@ -6,6 +6,7 @@
 # https://zhuanlan.zhihu.com/p/20869884
 
 '''
+https://zhuanlan.zhihu.com/p/20869884
 lxml是python的一个库，可以迅速、灵活地处理 XML。
 提取集搜客官网旧版论坛的帖子标题和回复数，把整个列表提取出来，存成xml格式
 '''
