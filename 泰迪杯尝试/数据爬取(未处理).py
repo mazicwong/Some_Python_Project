@@ -6,7 +6,8 @@
 
 import urllib.request
 
-#按顺序放入txt
+
+# 按顺序放入txt
 def saveFile(data, cnt):
     path = r'E:\泰迪杯\C题样例数据\All_html\out%s.txt' % cnt
     f = open(path, 'wb')
