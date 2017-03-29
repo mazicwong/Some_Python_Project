@@ -4,6 +4,8 @@
 # @Author  : mazicwong
 # @File    : crack.py
 
+#https://www.shiyanlou.com/courses/364
+
 from PIL import Image
 im = Image.open("Code.png")
 im = im.convert("P") #converting an “RGB” image to an 8-bit palette image
