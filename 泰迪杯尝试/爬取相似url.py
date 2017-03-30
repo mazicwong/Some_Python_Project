@@ -8,9 +8,20 @@ import urllib.request
 import re
 from bs4 import BeautifulSoup
 
-#匹配该url是否相似
-def is_match(url,new_url):
 
+# 匹配该url是否相似
+def is_match(url, new_url):
+    len1 = len(url)
+    len2 = len(new_url)
+    if len1 != len2:
+        return False
+    for i in range(0, len1):
+        if url[i].islower():
+            if url[i]==new_url[i]:
+                continue
+            else:
+                return
+        elif
 
 # 按顺序放入txt
 def saveFile(data, cnt):
@@ -42,36 +53,36 @@ def getHtml(url, cnt):
         print('sorry! 第%s个论坛爬取失败' % cnt)
         saveFail(url, cnt)
 
-def getSimilarHtml(url,cnt):
-    #以下:get主页url
+
+def getSimilarHtml(url, cnt):
+    # 以下:get主页url
     m = url.split('//')
-    if len(m)==2:
+    if len(m) == 2:
         root_url = m[1]
     else:
         root_url = m[0]
     tt = root_url.split('/')
     root_url = tt[0]
 
-    #在主页下面get新的URL,存入List
+    # 在主页下面get新的URL,存入List
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
     }
     req = urllib.request.Request(url=root_url, headers=headers)
-    response = urllib.request.urlopen(req,timeout=2)
+    response = urllib.request.urlopen(req, timeout=2)
     html = response.read()
     p1 = r''
 
-
-    #判断是否相似URL
-    if is_match(url,new_url)==True:
-        saveFile(new,new_url)
-
+    # 判断是否相似URL
+    if is_match(url, new_url) == True:
+        saveFile(new, new_url)
 
 
 
-    # p1 = r"" #正则表达式
-    # pat = re.compile(p1) #编译正则表达式
-    # re.find(pat,new_url)
+
+        # p1 = r"" #正则表达式
+        # pat = re.compile(p1) #编译正则表达式
+        # re.find(pat,new_url)
 
 
 # def getSimilarHtml(url, cnt):
