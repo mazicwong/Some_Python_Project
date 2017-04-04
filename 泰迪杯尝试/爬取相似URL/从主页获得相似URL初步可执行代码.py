@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2017/3/25 22:50
 # @Author  : mazicwong
-# @File    : 爬取相似url.py
+# @File    : 1.爬取相似url(最终).py
 
 import urllib.request
 import re
+import os
 from bs4 import BeautifulSoup
 
 
@@ -44,7 +45,13 @@ def main():
     with open(r"E:\泰迪杯\C题样例数据\All_html 相似url\bbs_urls.txt", "r") as file:
         urlList = file.readlines()
         cnt = 1
+        # path = r'E:\泰迪杯\C题样例数据\All_html 相似url\爬取结果' #用来判断文件是否已经存在
         for url in urlList:
+            # if os.path.isfile('out%s.txt'%cnt): #存在且不为空就退出
+            #     if os.
+            #         cnt +=1
+            #         continue
+
             # 以下:get主页url   http://www.baidu.com/abc/cc  ==>>  www.baidu.com
             m = url.split('//')
             if len(m) == 2:
@@ -56,7 +63,7 @@ def main():
             root_url = r'http://' + root_url
             # getHtml(url, cnt)
             # print(root_url)
-            html = get_root_html(root_url)  # 获得主页html
+            root_html = get_root_html(root_url)  # 获得主页html
             p1 = get_re(url)  # 获取正则表达式
             # print(p1)
             # print(type(p1))
@@ -65,7 +72,7 @@ def main():
             # print(p1)
             # print(type(p1))
             pat = re.compile(p1)  # 编译正则表达式
-            List = re.findall(pat, html)
+            List = re.findall(pat, root_html)
             print(len(List))
             # for i in List:
             #     print(i)

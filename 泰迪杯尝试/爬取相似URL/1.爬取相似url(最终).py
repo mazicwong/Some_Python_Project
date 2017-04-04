@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2017/3/25 22:50
 # @Author  : mazicwong
-# @File    : 爬取相似url.py
+# @File    : 1.爬取相似url(最终).py
 
 import urllib.request
 import re
@@ -82,7 +82,7 @@ def get_re(url):
             p += '[a-z]'
         elif 'A' <= url[i] <= 'Z':  #http://www.shdxlt.cn/ShowPost.asp?ThreadID=144952
             p += '[A-Z]'
-        elif '0' <= url[i] <= 'z':
+        elif '0' <= url[i] <= '9':
             p += '\d'
         else:
             p += url[i]
@@ -128,7 +128,7 @@ def getUrl():
                 root_html = get_root_html(root_url)  # 获得主页html
                 p1 = get_re(url)  # 获取正则表达式
                 p1 = p1.encode(encoding='utf-8')  # str => bites (for the use of re.compile)
-                p1 = p1[:-1]  # 去掉换行符
+                p1 = p1[:-1]  # 去掉换行符(从str转成bytes是为了可以compile,但是会产生一个换行,去掉就可以了)
                 pat = re.compile(p1)  # 编译正则表达式
                 List = re.findall(pat, root_html)
                 print("第%s个:%s个结果" % (cnt, len(List)))
