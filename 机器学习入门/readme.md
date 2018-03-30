@@ -1,5 +1,5 @@
 ### 学习视频
->http://www.icourse163.org/course/BIT-1001872001
+>http://www.icourse163.org/course/BIT-1001872001  
 >https://www.bilibili.com/video/av17204303
 
 ### numpy

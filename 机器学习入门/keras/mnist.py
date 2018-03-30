@@ -71,4 +71,4 @@ print("The accuracy of the model is %f" % (true_num/len(result_bool)))
 '''
     第六步：保存模型(可选)
 '''
-model.save('my_model.h5')
+# model.save('my_model.h5')
